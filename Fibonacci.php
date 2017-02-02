@@ -26,12 +26,15 @@ class Fibonacci implements iFibonacci
    }
    private function setFirst($firstValue)
    {
+      $this->firstValue = $firstValue;
    }
    private function getFirst()
    {
+      return $this->firstValue;
    }
    private function getNext($actual, $next)
    {
+    return $nextValue = $actual + $next;
    }
    private function validateValue($value)
    {
@@ -44,6 +47,5 @@ class Fibonacci implements iFibonacci
          $success = false;
       }
       return $success;
-   }
    }
 }
