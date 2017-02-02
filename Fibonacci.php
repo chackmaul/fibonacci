@@ -23,6 +23,31 @@ class Fibonacci implements iFibonacci
     */
    public function getFibonacci()
    {
+      $rootValue = $this->getFirst();
+      $nextValue = $lastValue = 0;
+      switch ($rootValue) {
+         case 0:
+         {
+            $actualValue = 1;
+            break;
+         }
+         case 1:
+         {
+            $actualValue = 1;
+            break;
+         }
+         default:
+         {
+            $actualValue = $rootValue;
+         }
+      }
+      echo "Fibonacci sequence for number: ".  $rootValue . PHP_EOL;
+      for ($i = 0; $i < 10; $i++) {
+         echo $actualValue . PHP_EOL;
+         $nextValue = $this->getNext($actualValue, $lastValue);
+         $lastValue = $actualValue;
+         $actualValue = $nextValue;
+      }
    }
    private function setFirst($firstValue)
    {
