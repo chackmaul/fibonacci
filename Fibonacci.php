@@ -11,6 +11,12 @@ class Fibonacci implements iFibonacci
     */
    public function __construct($value)
    {
+      $this->validatedValue = $this->validateValue($value);
+      if ($this->validatedValue === true) {
+         $this->setFirst($value);
+      } else {
+         throw new \InvalidArgumentException('Error, numeric value mus be supplied');
+      }
    }
    /**
     *getFibonacci obtain the Fibonacci sequence for a given number and prints it
@@ -29,5 +35,15 @@ class Fibonacci implements iFibonacci
    }
    private function validateValue($value)
    {
+      $success = false;
+      if (is_int($value)) {
+         $success = true;
+      } elseif ((int) $value){
+         $success = true;
+      } else {
+         $success = false;
+      }
+      return $success;
+   }
    }
 }
